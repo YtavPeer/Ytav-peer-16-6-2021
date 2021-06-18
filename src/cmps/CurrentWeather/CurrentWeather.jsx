@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
+import s1 from '../../assets/weather-icon/01-s.png';
 
 const useStyles = makeStyles({
     root: {
@@ -63,6 +64,7 @@ export const CurrentWeather = ({ currWeather, currLocation, toggleFavorite, isFa
                 <Card className="current-container" className={classes.root}>
                     <CardContent>
 
+
                         <Typography variant="h5" component="h2">
                             {currLocation.LocalizedName}
                         </Typography>
@@ -91,7 +93,9 @@ export const CurrentWeather = ({ currWeather, currLocation, toggleFavorite, isFa
 
             <div>
                 <h2>{currWeather[0].WeatherText}</h2>
-                <h1>{isFavorite}</h1>
+                {currWeather[0].WeatherIcon < 10 ?
+                    <img src={`https://developer.accuweather.com/sites/default/files/0${currWeather[0].WeatherIcon}-s.png`}></img> :
+                    <img src={`https://developer.accuweather.com/sites/default/files/${currWeather[0].WeatherIcon}-s.png`}></img>}
             </div>
 
             <div className="add-favorite">
