@@ -1,0 +1,45 @@
+.app-header {
+      background-color: black;
+      color: whitesmoke;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-inline-start: 20px;
+      padding-inline-end: 20px;
+      .navbar-header {
+            display: flex;
+            li {
+                  margin-inline-start: 10px;
+                  list-style: none;
+                  a {
+                        color: whitesmoke;
+                        text-decoration: none;
+                        font-size: 1.5rem;
+                  }
+            }
+
+            .icon-toggle{
+                  cursor: pointer;
+            }
+      }
+      img {
+            width: 50px;
+            margin-inline-start: 30px;
+            margin-block-start: 10px;
+      }
+      .icon-nav {
+            width: 40px;
+            cursor: pointer;
+      }
+}
+
+@media only screen and (max-width: 450px) {
+      .app-header {
+            .icon-nav {
+                  width: 35px;
+            }
+            img {
+                  width: 35px;
+            }
+      }
+}

@@ -1,0 +1,13 @@
+.current-weather {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 250px;
+      margin-block-start: 5px;
+      margin-block-end: 20px;
+     
+      .current-container{
+            background-color: slateblue;
+            width: 200px;
+      }
+}
