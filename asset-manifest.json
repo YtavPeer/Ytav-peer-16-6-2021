@@ -1,31 +1,31 @@
 {
   "files": {
-    "main.css": "/Ytav-peer-16-6-2021/static/css/main.a3f6367c.chunk.css",
-    "main.js": "/Ytav-peer-16-6-2021/static/js/main.de9bb807.chunk.js",
-    "main.js.map": "/Ytav-peer-16-6-2021/static/js/main.de9bb807.chunk.js.map",
+    "main.css": "/Ytav-peer-16-6-2021/static/css/main.77497edd.chunk.css",
+    "main.js": "/Ytav-peer-16-6-2021/static/js/main.c156076a.chunk.js",
+    "main.js.map": "/Ytav-peer-16-6-2021/static/js/main.c156076a.chunk.js.map",
     "runtime-main.js": "/Ytav-peer-16-6-2021/static/js/runtime-main.5e958be6.js",
     "runtime-main.js.map": "/Ytav-peer-16-6-2021/static/js/runtime-main.5e958be6.js.map",
-    "static/js/2.fee27e8d.chunk.js": "/Ytav-peer-16-6-2021/static/js/2.fee27e8d.chunk.js",
-    "static/js/2.fee27e8d.chunk.js.map": "/Ytav-peer-16-6-2021/static/js/2.fee27e8d.chunk.js.map",
+    "static/css/2.97503911.chunk.css": "/Ytav-peer-16-6-2021/static/css/2.97503911.chunk.css",
+    "static/js/2.e05b8c14.chunk.js": "/Ytav-peer-16-6-2021/static/js/2.e05b8c14.chunk.js",
+    "static/js/2.e05b8c14.chunk.js.map": "/Ytav-peer-16-6-2021/static/js/2.e05b8c14.chunk.js.map",
     "static/js/3.98d8e197.chunk.js": "/Ytav-peer-16-6-2021/static/js/3.98d8e197.chunk.js",
     "static/js/3.98d8e197.chunk.js.map": "/Ytav-peer-16-6-2021/static/js/3.98d8e197.chunk.js.map",
     "index.html": "/Ytav-peer-16-6-2021/index.html",
-    "static/css/main.a3f6367c.chunk.css.map": "/Ytav-peer-16-6-2021/static/css/main.a3f6367c.chunk.css.map",
-    "static/js/2.fee27e8d.chunk.js.LICENSE.txt": "/Ytav-peer-16-6-2021/static/js/2.fee27e8d.chunk.js.LICENSE.txt",
-    "static/media/Silverlining4.35c7e0f7.jpg": "/Ytav-peer-16-6-2021/static/media/Silverlining4.35c7e0f7.jpg",
+    "static/css/2.97503911.chunk.css.map": "/Ytav-peer-16-6-2021/static/css/2.97503911.chunk.css.map",
+    "static/css/main.77497edd.chunk.css.map": "/Ytav-peer-16-6-2021/static/css/main.77497edd.chunk.css.map",
+    "static/js/2.e05b8c14.chunk.js.LICENSE.txt": "/Ytav-peer-16-6-2021/static/js/2.e05b8c14.chunk.js.LICENSE.txt",
     "static/media/celsius.88ce2f3b.png": "/Ytav-peer-16-6-2021/static/media/celsius.88ce2f3b.png",
-    "static/media/day1.01787a33.png": "/Ytav-peer-16-6-2021/static/media/day1.01787a33.png",
-    "static/media/day1.21241496.jpeg": "/Ytav-peer-16-6-2021/static/media/day1.21241496.jpeg",
+    "static/media/App.scss": "/Ytav-peer-16-6-2021/static/media/night1.69702549.png",
     "static/media/history.ca79a7ac.svg": "/Ytav-peer-16-6-2021/static/media/history.ca79a7ac.svg",
     "static/media/home.2407e455.svg": "/Ytav-peer-16-6-2021/static/media/home.2407e455.svg",
     "static/media/moon.8129ab98.png": "/Ytav-peer-16-6-2021/static/media/moon.8129ab98.png",
-    "static/media/night1.69702549.png": "/Ytav-peer-16-6-2021/static/media/night1.69702549.png",
     "static/media/sun.6d48da50.png": "/Ytav-peer-16-6-2021/static/media/sun.6d48da50.png"
   },
   "entrypoints": [
     "static/js/runtime-main.5e958be6.js",
-    "static/js/2.fee27e8d.chunk.js",
-    "static/css/main.a3f6367c.chunk.css",
-    "static/js/main.de9bb807.chunk.js"
+    "static/css/2.97503911.chunk.css",
+    "static/js/2.e05b8c14.chunk.js",
+    "static/css/main.77497edd.chunk.css",
+    "static/js/main.c156076a.chunk.js"
   ]
 }
