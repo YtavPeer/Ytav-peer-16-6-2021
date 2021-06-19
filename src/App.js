@@ -17,14 +17,15 @@ function App() {
 
       <Router>
         <Header></Header>
+
         <Switch>
           <Route component={WeatherFavorite} path='/favorite'></Route>
           <Route component={WeatherDetails} exact path='/'></Route>
           <Route component={PageNotFound} />
         </Switch>
+        <ToastContainer />
       </Router>
-      <ToastContainer />
-      
+
     </div>
   );
 }

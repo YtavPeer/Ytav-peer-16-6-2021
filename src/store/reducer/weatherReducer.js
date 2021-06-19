@@ -49,6 +49,11 @@ export function weatherReducer(state = INITIAL_STATE, action) {
         ...state,
         isCelsius: !state.isCelsius
       }
+    case 'SET_DARK_MODE':
+      return {
+        ...state,
+        isDarkMode: action.payload
+      }
     default:
       return state
   }

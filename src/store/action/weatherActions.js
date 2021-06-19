@@ -66,6 +66,23 @@ export const getLocationFromGeolocation = (lat, lon) => async dispatch => {
       }
 }
 
+export const setDarkModeByCurrentTime = () => async dispatch => {
+      try {
+            const geoLocationSuccess = async (position) => {
+                  const location = await weatherService.getGeoLocation(position.coords.latitude, position.coords.longitude);
+                  const weatherData = await weatherService.getWeather(location.Key);
+                  const isNight = await weatherData[0].IsDayTime
+                  await dispatch({ type: 'SET_DARK_MODE', payload: !isNight });
+            }
+            const geoLocationError = (err) => {
+                  console.log('got error when try to get your location for dark mode', err)
+            }
+            navigator.geolocation.getCurrentPosition(geoLocationSuccess, geoLocationError)
+      } catch (err) {
+            console.error('get error while try to set mode by current time ', err)
+      }
+}
+
 export const toggleDarkMode = dispatch => {
       try {
             dispatch({ type: 'TOGGLE_DARK_MODE' });

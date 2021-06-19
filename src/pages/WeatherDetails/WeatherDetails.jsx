@@ -1,7 +1,7 @@
 import './WeatherDetails.scss'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getCurrentWeather, getFiveDaysForecast, addToFavoriteList, removeFromFavoriteList } from '../../store/action/weatherActions'
+import { getCurrentWeather, getFiveDaysForecast, addToFavoriteList, removeFromFavoriteList, setDarkModeByCurrentTime } from '../../store/action/weatherActions'
 import { SearchBar } from '../../cmps/SearchBar';
 import { WeatherList } from '../../cmps/WeatherList';
 import { CurrentWeather } from '../../cmps/CurrentWeather';
@@ -17,6 +17,7 @@ export const WeatherDetails = (props) => {
     const isFavorite = favoriteLocations.some(location => location['Key'] === currLocation.Key)
 
     useEffect(() => {
+        dispatch(setDarkModeByCurrentTime())
         dispatch(getCurrentWeather(currLocation.Key))
         dispatch(getFiveDaysForecast(currLocation.Key))
     }, [currLocation.Key, dispatch])

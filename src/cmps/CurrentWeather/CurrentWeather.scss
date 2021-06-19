@@ -27,6 +27,11 @@
       color: rgba(255, 255, 255, 0.911) !important;
 }
 
+.icon-start {
+      width: 25px;
+      margin-inline-end: 10px;
+}
+
 @media only screen and (max-width: 800px) {
       .weather-summery {
             width: 150px;
@@ -36,7 +41,7 @@
       }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 630px) {
       .current-weather {
             justify-content: center;
             flex-direction: column;

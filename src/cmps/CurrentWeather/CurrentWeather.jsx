@@ -5,6 +5,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
+import blackstar from '../../assets/blackstar.png'
+import yellowstar from '../../assets/yellowstar.png'
 
 export const CurrentWeather = ({ currWeather, currLocation, toggleFavorite, isFavorite }) => {
 
@@ -30,7 +32,7 @@ export const CurrentWeather = ({ currWeather, currLocation, toggleFavorite, isFa
                     <Typography className="card-typography-title" variant="h5" component="h2">
                         {currLocation.LocalizedName}
                     </Typography>
-                    <Typography className={`card-typography ${isDarkMode ? "dark-mode" : ""}`}  color="textSecondary">
+                    <Typography className={`card-typography ${isDarkMode ? "dark-mode" : ""}`} color="textSecondary">
                         Temp:  {temperatures[0]} {metricSign}
                     </Typography>
                     <Typography className={`card-typography ${isDarkMode ? "dark-mode" : ""}`} color="textSecondary">
@@ -54,10 +56,12 @@ export const CurrentWeather = ({ currWeather, currLocation, toggleFavorite, isFa
 
             <div className="add-favorite">
                 {isFavorite ?
-                    <Button onClick={() => toggleFavorite(currLocation, true)} variant="outlined" color="secondary">
+                    <Button onClick={() => toggleFavorite(currLocation, true)} variant="contained" color="secondary">
+                        <img className="icon-start" src={blackstar} alt='home-icon' />
                         remove from favorite
                     </Button> :
-                    <Button onClick={() => toggleFavorite(currLocation, false)} variant="outlined" color="secondary">
+                    <Button onClick={() => toggleFavorite(currLocation, false)} variant="contained" color="secondary">
+                        <img className="icon-start" src={yellowstar} alt='home-icon' />
                         add to favorite
                     </Button>
                 }
