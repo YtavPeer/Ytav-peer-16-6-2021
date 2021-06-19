@@ -13,15 +13,13 @@ export const WeatherDetails = (props) => {
     const currLocation = useSelector(state => state.currentLocation)
     const currWeather = useSelector(state => state.currWeather)
     const currFiveDaysForecast = useSelector(state => state.currFiveDaysForecast)
-
     const favoriteLocations = useSelector(state => state.favoriteLocations)
-
     const isFavorite = favoriteLocations.some(location => location['Key'] === currLocation.Key)
 
     useEffect(() => {
         dispatch(getCurrentWeather(currLocation.Key))
         dispatch(getFiveDaysForecast(currLocation.Key))
-    }, [])
+    }, [currLocation.Key, dispatch])
 
     const toggleFavorite = (location, needToRemove) => {
         if (needToRemove) {

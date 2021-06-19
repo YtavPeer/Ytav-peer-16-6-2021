@@ -1,6 +1,6 @@
 import './PageNotFound.scss'
 
-export const PageNotFound = ({ history }) => {
+export const PageNotFound = () => {
 
   const image_url = 'http://i.giphy.com/l117HrgEinjIA.gif';
 

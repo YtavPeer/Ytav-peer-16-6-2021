@@ -16,3 +16,19 @@ body {
   font-family: "Rubik", sans-serif;
   margin: 0;
 }
+
+.background-dark {
+  background-image: url('./assets/night1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.background-light {
+  background-image: url('./assets/day1.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+}

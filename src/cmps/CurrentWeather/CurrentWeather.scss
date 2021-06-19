@@ -7,32 +7,45 @@
       margin-block-end: 20px;
 
       .current-container {
-            background-color: slateblue;
-            width: 200px;
+            min-width: 275px;
+            .card-typography {
+                  margin-block-end: 12px;
+            }
       }
 
-      .weather-summery {
-      }
-
-      .add-favorite {
+      .weather-img {
+            width: 250px;
       }
 }
 
+.dark-mode {
+      background-color: rgba(0, 0, 0, 0.842) !important;
+      color: rgba(255, 255, 255, 0.911) !important;
+}
+
+@media only screen and (max-width: 800px) {
+      .weather-summery {
+            width: 150px;
+            .weather-img {
+                  width: 150px;
+            }
+      }
+}
 
 @media only screen and (max-width: 510px) {
       .current-weather {
             justify-content: center;
             flex-direction: column;
       }
-
-      .weather-summery {
-      }
-      
-      .add-favorite {
-            
-      }
       .current-weather {
             height: 400px;
+      }
 
+      .weather-summery {
+            margin: 0 auto;
+            width: 100px;
+            .weather-img {
+                  width: 100px;
+            }
       }
 }

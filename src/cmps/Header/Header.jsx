@@ -15,18 +15,16 @@ export const Header = (props) => {
     const dispatch = useDispatch()
     const isCelsius = useSelector(state => state.isCelsius)
     const isDarkMode = useSelector(state => state.isDarkMode)
+    const metric = isCelsius ? celsius : farenheit;
+    const mode = isDarkMode ? moon : sun;
 
     const toggleMode = () => {
-        console.log('ddd')
         dispatch(toggleDarkMode)
     }
 
     const toggleCelsius = () => {
         dispatch(toggleUnit)
     }
-
-    const metric = isCelsius ? celsius : farenheit;
-    const mode = isDarkMode ? moon : sun;
 
     return (
         <header className="app-header">

@@ -2,11 +2,9 @@ import './WeatherFavorite.scss'
 import { useSelector } from 'react-redux';
 import { FavoriteList } from '../../cmps/FavoriteList';
 
-
 export const WeatherFavorite = () => {
 
     const favoriteLocations = useSelector(state => state.favoriteLocations)
-    
     
     return (
         <section>

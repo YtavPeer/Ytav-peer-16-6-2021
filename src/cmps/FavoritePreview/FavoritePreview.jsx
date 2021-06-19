@@ -4,47 +4,28 @@ import { weatherService } from '../../services/weatherService'
 import { useDispatch } from 'react-redux';
 import { getCurrentWeather, getFiveDaysForecast, setNewLocation } from '../../store/action/weatherActions'
 import { useHistory } from 'react-router';
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
 
-const useStyles = makeStyles({
-    root: {
-
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
-    },
-});
-
-
 export const FavoritePreview = ({ location }) => {
 
-    const classes = useStyles();
     const [weather, setWeather] = useState(null)
     const dispatch = useDispatch()
     const history = useHistory()
     const isCelsius = useSelector(state => state.isCelsius)
+    const isDarkMode = useSelector(state => state.isDarkMode)
 
     useEffect(() => {
         (async () => {
             const weatherData = await weatherService.getWeather(location.Key)
             await setWeather(weatherData)
         })()
-    }, [])
+    }, [location.Key])
 
     const temperature = isCelsius ? weather && weather[0].Temperature.Metric.Value : weather && weather[0].Temperature.Imperial.Value;
-    const metricSign = isCelsius ? '°C': '°F';
+    const metricSign = isCelsius ? '°C' : '°F';
 
     const onSelectLocation = async () => {
         dispatch(setNewLocation(location))
@@ -55,13 +36,13 @@ export const FavoritePreview = ({ location }) => {
 
     return (
         <article className="favorite-preview" onClick={onSelectLocation}>
-            <Card className={classes.root}>
+            <Card className={`${isDarkMode ? "dark-mode" : ""}`}>
                 <CardContent>
                     <Typography variant="h5" component="h2">
                         {location.LocalizedName}
                     </Typography>
-                    {weather && <Typography className={classes.pos} color="textSecondary">temp: {temperature} {metricSign}</Typography>}
-                    {weather && <Typography className={classes.pos} color="textSecondary">{weather[0].WeatherText}</Typography>}
+                    {weather && <Typography className={`card-typography ${isDarkMode ? "dark-mode" : ""}`} color="textSecondary">temp: {temperature} {metricSign}</Typography>}
+                    {weather && <Typography className={`card-typography ${isDarkMode ? "dark-mode" : ""}`} color="textSecondary">{weather[0].WeatherText}</Typography>}
                 </CardContent>
             </Card>
         </article>

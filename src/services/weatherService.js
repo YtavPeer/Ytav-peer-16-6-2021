@@ -7,7 +7,6 @@ const STORAGE_KEY = 'FAVORITE';
 const notify = (msg) => toast(msg);
 var favoriteLocation = storageService.load(STORAGE_KEY) || [];
 
-
 export const weatherService = {
       query,
       getWeather,
@@ -18,12 +17,17 @@ export const weatherService = {
       removeFromFavoriteList
 }
 
-//get autocomplete search 
+//get autocomplete search  
 async function query(q) {
       try {
             if (q === '') return []
+          
+            const english = /^[A-Za-z ]*$/;
+            if (!(english.test(q))){
+                  notify('Please search english letter only')
+                  return []
+            }
             const response = await axios.get(`${API_WEATHER_URL}/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${q}`);
-            console.log(response)
             return response.data;
       } catch (error) {
             console.error('weather service: error while try to fetch autocomplete search');
