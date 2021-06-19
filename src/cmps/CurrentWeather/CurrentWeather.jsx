@@ -6,7 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
-import s1 from '../../assets/weather-icon/01-s.png';
+
 
 const useStyles = makeStyles({
     root: {
@@ -26,72 +26,48 @@ const useStyles = makeStyles({
 });
 
 
-
 export const CurrentWeather = ({ currWeather, currLocation, toggleFavorite, isFavorite }) => {
 
     const isCelsius = useSelector(state => state.isCelsius)
     const classes = useStyles();
 
+    const temperatures = isCelsius ?
+        [currWeather[0].Temperature.Metric.Value,
+        currWeather[0].RealFeelTemperature.Metric.Value,
+        currWeather[0].Wind.Speed.Metric.Value,
+        currWeather[0].Wind.Speed.Metric.Unit]
+        :
+        [currWeather[0].Temperature.Imperial.Value,
+        currWeather[0].RealFeelTemperature.Imperial.Value,
+        currWeather[0].Wind.Speed.Imperial.Value,
+        currWeather[0].Wind.Speed.Imperial.Unit]
+
+    const metricSign = isCelsius ? '°C' : '°F';
+
     return (
         <section className="current-weather">
 
-            {isCelsius ? <Card className="current-container" className={classes.root}>
+            <Card className="current-container" className={classes.root}>
                 <CardContent>
-
                     <Typography variant="h5" component="h2">
                         {currLocation.LocalizedName}
                     </Typography>
-
                     <Typography className={classes.pos} color="textSecondary">
-                        Temp:  {currWeather[0].Temperature.Metric.Value} °C
+                        Temp:  {temperatures[0]} {metricSign}
                     </Typography>
-
                     <Typography className={classes.pos} color="textSecondary">
-                        Feel: {currWeather[0].RealFeelTemperature.Metric.Value} °C
+                        Feel: {temperatures[1]} {metricSign}
                     </Typography>
-
                     <Typography className={classes.pos} color="textSecondary">
                         Homidity: {currWeather[0].RelativeHumidity}
                     </Typography>
-
-
                     <Typography className={classes.pos} color="textSecondary">
-                        Wind Speed: {currWeather[0].Wind.Speed.Metric.Value} {currWeather[0].Wind.Speed.Metric.Unit}
+                        Wind Speed: {temperatures[2]} {temperatures[3]}
                     </Typography>
-
                 </CardContent>
-            </Card> :
-                <Card className="current-container" className={classes.root}>
-                    <CardContent>
+            </Card>
 
-
-                        <Typography variant="h5" component="h2">
-                            {currLocation.LocalizedName}
-                        </Typography>
-
-                        <Typography className={classes.pos} color="textSecondary">
-                            Temp:  {currWeather[0].Temperature.Imperial.Value} °F
-                        </Typography>
-
-                        <Typography className={classes.pos} color="textSecondary">
-                            Feel: {currWeather[0].RealFeelTemperature.Imperial.Value} °F
-                        </Typography>
-
-                        <Typography className={classes.pos} color="textSecondary">
-                            Homidity: {currWeather[0].RelativeHumidity}
-                        </Typography>
-
-
-                        <Typography className={classes.pos} color="textSecondary">
-                            Wind Speed: {currWeather[0].Wind.Speed.Imperial.Value} {currWeather[0].Wind.Speed.Imperial.Unit}
-                        </Typography>
-
-                    </CardContent>
-                </Card>}
-
-
-
-            <div>
+            <div className="weather-summery">
                 <h2>{currWeather[0].WeatherText}</h2>
                 {currWeather[0].WeatherIcon < 10 ?
                     <img src={`https://developer.accuweather.com/sites/default/files/0${currWeather[0].WeatherIcon}-s.png`}></img> :
@@ -99,7 +75,6 @@ export const CurrentWeather = ({ currWeather, currLocation, toggleFavorite, isFa
             </div>
 
             <div className="add-favorite">
-
                 {isFavorite ?
                     <Button onClick={() => toggleFavorite(currLocation, true)} variant="outlined" color="secondary">
                         remove from favorite
@@ -108,9 +83,7 @@ export const CurrentWeather = ({ currWeather, currLocation, toggleFavorite, isFa
                         add to favorite
                     </Button>
                 }
-
             </div>
-
 
         </section>
     )

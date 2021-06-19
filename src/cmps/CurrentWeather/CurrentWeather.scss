@@ -5,9 +5,34 @@
       height: 250px;
       margin-block-start: 5px;
       margin-block-end: 20px;
-     
-      .current-container{
+
+      .current-container {
             background-color: slateblue;
             width: 200px;
+      }
+
+      .weather-summery {
+      }
+
+      .add-favorite {
+      }
+}
+
+
+@media only screen and (max-width: 510px) {
+      .current-weather {
+            justify-content: center;
+            flex-direction: column;
+      }
+
+      .weather-summery {
+      }
+      
+      .add-favorite {
+            
+      }
+      .current-weather {
+            height: 400px;
+
       }
 }

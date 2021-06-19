@@ -8,11 +8,10 @@ import moon from '../../assets/moon.png'
 import sun from '../../assets/sun.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleDarkMode, toggleUnit } from '../../store/action/weatherActions'
-
 import './Header.scss'
 
 export const Header = (props) => {
-
+    
     const dispatch = useDispatch()
     const isCelsius = useSelector(state => state.isCelsius)
     const isDarkMode = useSelector(state => state.isDarkMode)
@@ -26,16 +25,18 @@ export const Header = (props) => {
         dispatch(toggleUnit)
     }
 
+    const metric = isCelsius ? celsius : farenheit;
+    const mode = isDarkMode ? moon : sun;
+
     return (
         <header className="app-header">
-            <div>
+            <NavLink exact to="/" activeClassName="active-nav">
                 <img className="herolo" src={herolo} alt='herolo-icon' />
-            </div>
+            </NavLink>
+
             <ul className="navbar-header">
-
-                {isCelsius ? <img className="icon-toggle" src={celsius} alt="" onClick={toggleCelsius}  /> : <img className="icon-toggle" src={farenheit} alt="" onClick={toggleCelsius}  />}
-                {isDarkMode ? <img className="icon-toggle" src={moon} alt="" onClick={toggleMode} /> : <img className="icon-toggle" src={sun} alt="" onClick={toggleMode} />}
-
+                <img className="icon-toggle" src={metric} alt="" onClick={toggleCelsius} />
+                <img className="icon-toggle" src={mode} alt="" onClick={toggleMode} />
                 <NavLink exact to="/" activeClassName="active-nav">
                     <img className="icon-nav" src={home} alt='home-icon' />
                 </NavLink>

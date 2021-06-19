@@ -1,21 +1,5 @@
 import { weatherService } from '../../services/weatherService'
-
-const defaultLocation = {
-  "Version": 1,
-  "Key": "215854",
-  "Type": "City",
-  "Rank": 31,
-  "LocalizedName": "Tel Aviv",
-  "Country": {
-    "ID": "IL",
-    "LocalizedName": "Israel"
-  },
-  "AdministrativeArea": {
-    "ID": "TA",
-    "LocalizedName": "Tel Aviv"
-  },
-  "id": "WM8brNU"
-}
+import defaultLocation from './defaultLocation.json'
 
 const INITIAL_STATE = {
   currentLocation: defaultLocation,

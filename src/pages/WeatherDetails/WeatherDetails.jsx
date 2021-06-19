@@ -1,13 +1,11 @@
 import './WeatherDetails.scss'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentWeather, getFiveDaysForecast, addToFavoriteList, removeFromFavoriteList } from '../../store/action/weatherActions'
 import { SearchBar } from '../../cmps/SearchBar';
 import { WeatherList } from '../../cmps/WeatherList';
 import { CurrentWeather } from '../../cmps/CurrentWeather';
-import { UserLocation } from '../../cmps/UserLocation';
-
-
+import { UserLocationBtn } from '../../cmps/UserLocationBtn';
 
 export const WeatherDetails = (props) => {
 
@@ -18,7 +16,7 @@ export const WeatherDetails = (props) => {
 
     const favoriteLocations = useSelector(state => state.favoriteLocations)
 
-    const isFavorite = favoriteLocations.some( location => location['Key'] === currLocation.Key )
+    const isFavorite = favoriteLocations.some(location => location['Key'] === currLocation.Key)
 
     useEffect(() => {
         dispatch(getCurrentWeather(currLocation.Key))
@@ -26,9 +24,9 @@ export const WeatherDetails = (props) => {
     }, [])
 
     const toggleFavorite = (location, needToRemove) => {
-        if(needToRemove){
-            dispatch(removeFromFavoriteList (location))
-        }else{
+        if (needToRemove) {
+            dispatch(removeFromFavoriteList(location))
+        } else {
             dispatch(addToFavoriteList(location))
         }
     }
@@ -37,7 +35,7 @@ export const WeatherDetails = (props) => {
         <main className="weather-details">
             <div className="search-container">
                 <SearchBar />
-                <UserLocation />
+                <UserLocationBtn />
             </div>
             {currWeather && <CurrentWeather currWeather={currWeather} currLocation={currLocation} toggleFavorite={toggleFavorite} isFavorite={isFavorite} />}
             {currFiveDaysForecast && <WeatherList currFiveDaysForecast={currFiveDaysForecast.DailyForecasts} />}

@@ -1,10 +1,12 @@
 import { storageService } from './storageService.js';
 import axios from 'axios';
-
+import {toast } from 'react-toastify';
 const API_KEY = 'qLaVi1wB8AEGGGIPicv0ACVEiXEHsckm';
 const API_WEATHER_URL = 'https://dataservice.accuweather.com'
 const STORAGE_KEY = 'FAVORITE';
-var favoriteLocation = storageService.loadFromStorage(STORAGE_KEY) || [];
+const notify = (msg) => toast(msg);
+var favoriteLocation = storageService.load(STORAGE_KEY) || [];
+
 
 export const weatherService = {
       query,
@@ -52,8 +54,10 @@ async function getFiveDaysForecast(locationCode) {
 async function getGeoLocation(lat, lon) {
       try {
             const response = await axios.get(`${API_WEATHER_URL}/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${lat},${lon}`);
+            notify('success getting your location')
             return response.data;
       } catch (error) {
+            notify('error while try to get your location')
             console.error('weather service: error while try to fetch from geolocation api');
       }
 }
@@ -62,9 +66,11 @@ async function getGeoLocation(lat, lon) {
 async function updateFavoriteList(location) {
       try {
             favoriteLocation.unshift(location)
-            storageService.saveToStorage(STORAGE_KEY, favoriteLocation)
-            return storageService.loadFromStorage(STORAGE_KEY);
+            storageService.save(STORAGE_KEY, favoriteLocation)
+            notify('location was added to your favorite')
+            return storageService.load(STORAGE_KEY);
       } catch (error) {
+            notify('error while try to add to favorite')
             console.error('weather service: error while try to updateFavorite');
       }
 }
@@ -74,16 +80,16 @@ async function removeFromFavoriteList(location) {
       try {
             const updateFavoriteLocation = favoriteLocation.filter(favorite => favorite.Key !== location.Key)
             favoriteLocation = updateFavoriteLocation
-            storageService.saveToStorage(STORAGE_KEY, updateFavoriteLocation)
-            return storageService.loadFromStorage(STORAGE_KEY);
+            storageService.save(STORAGE_KEY, updateFavoriteLocation)
+            notify('location was removed from your favorite')
+            return storageService.load(STORAGE_KEY);
       } catch (error) {
+            notify('error while try to remove favorite')
             console.error('weather service: error while try to updateFavorite');
       }
 }
 
-function getFavoriteList() {
-      return favoriteLocation
-}
+function getFavoriteList() {return favoriteLocation};
 
 
 

@@ -10,7 +10,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
 
-
 const useStyles = makeStyles({
     root: {
 
@@ -44,6 +43,8 @@ export const FavoritePreview = ({ location }) => {
         })()
     }, [])
 
+    const temperature = isCelsius ? weather && weather[0].Temperature.Metric.Value : weather && weather[0].Temperature.Imperial.Value;
+    const metricSign = isCelsius ? '°C': '°F';
 
     const onSelectLocation = async () => {
         dispatch(setNewLocation(location))
@@ -54,25 +55,15 @@ export const FavoritePreview = ({ location }) => {
 
     return (
         <article className="favorite-preview" onClick={onSelectLocation}>
-
-            {isCelsius ? <Card className={classes.root}>
+            <Card className={classes.root}>
                 <CardContent>
                     <Typography variant="h5" component="h2">
                         {location.LocalizedName}
                     </Typography>
-                    {weather && <Typography className={classes.pos} color="textSecondary">temp: {weather[0].Temperature.Metric.Value}  °C</Typography>}
+                    {weather && <Typography className={classes.pos} color="textSecondary">temp: {temperature} {metricSign}</Typography>}
                     {weather && <Typography className={classes.pos} color="textSecondary">{weather[0].WeatherText}</Typography>}
                 </CardContent>
-            </Card> :
-                <Card className={classes.root}>
-                    <CardContent>
-                        <Typography variant="h5" component="h2">
-                            {location.LocalizedName}
-                        </Typography>
-                        {weather && <Typography className={classes.pos} color="textSecondary">temp: {weather[0].Temperature.Imperial.Value} °F</Typography>}
-                        {weather && <Typography className={classes.pos} color="textSecondary">{weather[0].WeatherText}</Typography>}
-                    </CardContent>
-                </Card>}
+            </Card>
         </article>
     )
 }

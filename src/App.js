@@ -9,15 +9,23 @@ import day2 from './assets/day2.jpg'
 import night2 from './assets/Silverlining4.jpg'
 import night1 from './assets/night1.png'
 import { useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
+
 import './App.scss';
 
 
 function App() {
 
+
   const isDarkMode = useSelector(state => state.isDarkMode)
 
   return (
     <div className="App main-container" style={ isDarkMode ? { backgroundImage: `url(${night1})`} : { backgroundImage: `url(${day3})` } }>
+
       <Router>
         <Header></Header>
         <Switch>
@@ -26,6 +34,8 @@ function App() {
           <Route component={PageNotFound} />
         </Switch>
       </Router>
+
+        <ToastContainer />
     </div>
   );
 }

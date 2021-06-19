@@ -5,7 +5,7 @@ export const searchLocation = q => async dispatch => {
             const autocompleteLocations = await weatherService.query(q);
             dispatch({ type: 'SEARCH_LOCATION', payload: autocompleteLocations });
       } catch (err) {
-            console.log('get error while try to fetch from api - search location', err)
+            console.error('get error while try to fetch from api - search location', err)
       }
 }
 
@@ -14,7 +14,7 @@ export const getCurrentWeather = locationCode => async dispatch => {
             const weatherData = await weatherService.getWeather(locationCode);
             dispatch({ type: 'GET_WEATHER', payload: weatherData });
       } catch (err) {
-            console.log('get error while try to fetch from api- get current weather', err)
+            console.error('get error while try to fetch from api- get current weather', err)
       }
 }
 
@@ -23,7 +23,7 @@ export const getFiveDaysForecast = locationCode => async dispatch => {
             const fiveDaysForecast = await weatherService.getFiveDaysForecast(locationCode);
             dispatch({ type: 'GET_FIVE_DAYS_FORECAST', payload: fiveDaysForecast });
       } catch (err) {
-            console.log('get error while try to fetch from api- get 5 days forecast', err)
+            console.error('get error while try to fetch from api- get 5 days forecast', err)
       }
 }
 
@@ -31,7 +31,7 @@ export const setNewLocation = locationData => async dispatch => {
       try {
             dispatch({ type: 'SET_NEW_LOCATION', payload: locationData });
       } catch (err) {
-            console.log('get error while try to set location data ', err)
+            console.error('get error while try to set location data ', err)
       }
 }
 
@@ -40,7 +40,7 @@ export const addToFavoriteList = locationData => async dispatch => {
             const updatedFavoriteList = await weatherService.updateFavoriteList(locationData);
             dispatch({ type: 'UPDATE_FAVORITE_LIST', payload: updatedFavoriteList });
       } catch (err) {
-            console.log('get error while try to update favorite data ', err)
+            console.error('get error while try to update favorite data ', err)
       }
 }
 
@@ -49,7 +49,7 @@ export const removeFromFavoriteList = locationData => async dispatch => {
             const updatedFavoriteList = await weatherService.removeFromFavoriteList(locationData);
             dispatch({ type: 'UPDATE_FAVORITE_LIST', payload: updatedFavoriteList });
       } catch (err) {
-            console.log('get error while try to update favorite data ', err)
+            console.error('get error while try to update favorite data ', err)
       }
 }
 
@@ -62,7 +62,7 @@ export const getLocationFromGeolocation = (lat, lon) => async dispatch => {
             const fiveDaysForecast = await weatherService.getFiveDaysForecast(location.Key);
             dispatch({ type: 'GET_FIVE_DAYS_FORECAST', payload: fiveDaysForecast });
       } catch (err) {
-            console.log('get error while try to fetch from api - get Geolocation', err)
+            console.error('get error while try to fetch from api - get Geolocation', err)
       }
 }
 
@@ -70,7 +70,7 @@ export const toggleDarkMode = dispatch => {
       try {
             dispatch({ type: 'TOGGLE_DARK_MODE' });
       } catch (err) {
-            console.log('error while try to toggle dark mode', err)
+            console.error('error while try to toggle dark mode', err)
       }
 }
 
@@ -78,6 +78,6 @@ export const toggleUnit = dispatch => {
       try {
             dispatch({ type: 'TOGGLE_UNIT' });
       } catch (err) {
-            console.log('error while try to toggle unit', err)
+            console.error('error while try to toggle unit', err)
       }
 }

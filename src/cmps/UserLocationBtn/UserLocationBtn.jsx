@@ -1,10 +1,9 @@
-
+import './UserLocationBtn.scss'
 import { useDispatch } from 'react-redux';
 import { getLocationFromGeolocation } from '../../store/action/weatherActions'
-import './UserLocation.scss'
 import { Button } from '@material-ui/core';
 
-export const UserLocation = (props) => {
+export const UserLocationBtn = (props) => {
 
     const dispatch = useDispatch()
 

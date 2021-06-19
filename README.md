@@ -1,3 +1,24 @@
+# weather app
+😀 weather app implementation using AccuWeather API, written in React with redux thunk
+
+## Development 🤓
+```bash
+npm start
+```
+## Build Artifacts 🛠 
+```bash
+npm build
+```
+## Library  💻
+moment,
+material ui,
+axios,
+redux,
+thunk,
+just-debounce
+React-Toastify,
+todo tree
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

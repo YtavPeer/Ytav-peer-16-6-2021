@@ -1,3 +1,7 @@
+/**
+ * Script for creating react components.
+ * Usage : node create-component.js --name ExampleComp --cmpType func --dir ./cmps
+ */
 const fs = require('fs');
 const path = require('path');
 
@@ -135,4 +139,3 @@ try {
 }
 
 
-//node create-component.js --name ExampleComp --cmpType func --dir ./cmps
