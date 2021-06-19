@@ -6,6 +6,10 @@
       margin-block-start: 5px;
       margin-block-end: 20px;
 
+      .card-typography-title {
+            margin-block-end: 12px;
+      }
+
       .current-container {
             min-width: 275px;
             .card-typography {
@@ -32,7 +36,7 @@
       }
 }
 
-@media only screen and (max-width: 510px) {
+@media only screen and (max-width: 550px) {
       .current-weather {
             justify-content: center;
             flex-direction: column;

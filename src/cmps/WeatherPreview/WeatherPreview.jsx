@@ -26,7 +26,7 @@ export const WeatherPreview = ({ dailyWeather }) => {
         <article className="weather-preview">
             <Card className={`${isDarkMode ? "dark-mode" : ""}`}>
                 <CardContent>
-                    <Typography variant="h5" component="h2">
+                    <Typography className="card-typography-title" variant="h5" component="h2">
                         {moment(dailyWeather.Date).format('dddd')}
                     </Typography>
 

@@ -38,7 +38,6 @@ export const SearchBar = (props) => {
                         <h4>{`${option.LocalizedName}`}</h4>
                     </div>)
                 }}
-                style={{ width: 300 }}
                 renderInput={(params) => <TextField className="searchBox" {...params} label="Search Location" variant="outlined" onChange={getAutocompleteSearch} />}
             />
         </section>

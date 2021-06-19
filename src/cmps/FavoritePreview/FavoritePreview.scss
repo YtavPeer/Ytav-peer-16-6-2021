@@ -4,6 +4,9 @@
       cursor: pointer;
       margin: 10px;
       .card-typography {
+            margin-block-end: 6px;
+      }
+      .card-typography-title {
             margin-block-end: 12px;
       }
 }

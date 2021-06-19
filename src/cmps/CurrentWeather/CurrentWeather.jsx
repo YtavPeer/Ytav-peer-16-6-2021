@@ -27,7 +27,7 @@ export const CurrentWeather = ({ currWeather, currLocation, toggleFavorite, isFa
 
             <Card className={`current-container ${isDarkMode ? "dark-mode" : ""}`}>
                 <CardContent>
-                    <Typography variant="h5" component="h2">
+                    <Typography className="card-typography-title" variant="h5" component="h2">
                         {currLocation.LocalizedName}
                     </Typography>
                     <Typography className={`card-typography ${isDarkMode ? "dark-mode" : ""}`}  color="textSecondary">

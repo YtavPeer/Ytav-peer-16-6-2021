@@ -38,7 +38,7 @@ export const FavoritePreview = ({ location }) => {
         <article className="favorite-preview" onClick={onSelectLocation}>
             <Card className={`${isDarkMode ? "dark-mode" : ""}`}>
                 <CardContent>
-                    <Typography variant="h5" component="h2">
+                    <Typography className="card-typography-title" variant="h5" component="h2">
                         {location.LocalizedName}
                     </Typography>
                     {weather && <Typography className={`card-typography ${isDarkMode ? "dark-mode" : ""}`} color="textSecondary">temp: {temperature} {metricSign}</Typography>}

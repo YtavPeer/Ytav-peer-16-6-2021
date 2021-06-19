@@ -1,7 +1,6 @@
 .search-bar {
-      width: 300px;
-      padding: 5px;
-      margin: 5px;
+      width: 350px;
+      margin-block-start: 10px;
 }
 
 .location-option {
@@ -17,11 +16,5 @@
             font-size: 12px;
             height: 40px;
             width: 70px;
-      }
-}
-
-@media only screen and (max-width: 510px) {
-      .search-bar {
-            width: 200px;
       }
 }
